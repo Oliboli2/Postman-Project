@@ -1,0 +1,144 @@
+{
+    "info": {
+        "_postman_id": "5d6d011b-e729-4155-ae36-842011c2d423",
+        "name": "Test JWT qual",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "ping LoanGranting",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            "const authUrl = 'https://apia-dc.pf.staging.echonet/auth/oauth2/v2/token',",
+                            " iss = 'zSo6pUveIhPbkRo0xKSPMYU1EtQkXxz6',",
+                            "  jwk = {",
+                            "  \"kty\": \"RSA\",",
+                            "  \"n\": \"0WCTN43IQjfoOZvu75JT3jnIZCHn5z2gwaq4UioqIXwdb1WYEjU1PWO4E90rbrOxDiXhrsq1QVRSlI9Xxxqskx0Vk4wX8a3OekmO8YOJSr2XaWA-p3pbRR5Esz0cUvFgZ7Ox4wnNgNDKQou0icp63RgH-T0t14-E-KIW5QJB1zDg_v48-05Os9oLMWn11kKlLe_ioTXhA2wxFFpMmYhERNAKo0MQCZexzDXKWFZ627Ye0aIqh1PNda03f1VZOl6wPunK2KXoGrPc-uL_KDzw7K2BSYClOddvENTUpTkHlg39rHF9fIjQu4XEDwuevy2zQhU1h-yWbuUXpbze9qRQsw\",",
+                            "  \"e\": \"AQAB\",",
+                            "  \"d\": \"RJHjRMNbPUx_8jX-N1ltvA6icSCliRamyiY1_Tqv142FOkwG5JemWveIdoDtU3Dn4GFJmuvqFn4eGWckcSFsOTXCNjMgOFcakvP6K2BPmzmiF7Gcc07gCy_Rgf3Wg9dnIi84Z8lzEufOBaMpOiMkv7m6Cscdd0YaXy7-Xnuxwl443omQLIXlnaXURN43rQYtSOc6S0jjVXBeSwbpMRQOvnxteYehbIVHyTb1z_afEUj0b1h4v8s_bAPxsFsXvQTHlRxisGUWzb7PH5kwgAoiHra11ezdlKaoZSefRZwAJY8HZFVc6E_8D2D3Li11aTbpjxm3EUpygRK2r1cleapXAQ\",",
+                            "  \"p\": \"8M1x5XhzppNENHF0sX6kiB3VKRbb2XfnGO1G8a9HhB-8_4Ha9SKkDhJ3gY-UXkXO9StYUpaiRxmicsR0bI9KAmMo6becTW5C8yIzYV12iowaL1_waDx1LEDW0TI4zDq4RfyBTT56I_HyZa8lNjCZmI-IaX30tUSsz0cdQxLIOzM\",",
+                            "  \"q\": \"3pdnZ-L3EP_Tu07qUq0doHSQSrQ3DPfWTMvBlukXzjmHK4zJ6UIRxtWPruiNQrHuriwm5RG4gwRGbvGd1May3c7reZO8KyErEUw5V5J4OaOWEZRqov_iwWOtqitKHR0nmC6x2jmiLY1pvCirBrtBTmctRITBewwfyVdQXWRnlIE\",",
+                            "  \"dp\": \"NwPpGrE7UvpgYc7uB0NU2dhfBAU582RmgxZq1_rgzvnlV0bWvJzOeHyVmx8vmZ4_W1os0qmhp7bem3Pw2YCfOw5moYcWicZAO4Y70OnmlF7P-LTlmxr89kBWE_NycI6V3T-EVx6ID0BOzhaG3Oubm_RnCRsC1os7JBwuPk3DO2s\",",
+                            "  \"dq\": \"cvSSTM6kdj0I5jVNQsFxCYrpcgs8WxArtqGMKxnaV4DSVCVzqWmbsKpeeCBVw9oMwBrBQ5AxUEiG74kMz_SGL5NLfRBVH5kTmu1Yt-dG-82GFTInGGM6glGuQLH2pq6F4kxLQb5-CTR9JNWD7ggLJCiY8kf1fEy4pczYDkNqUwE\",",
+                            "  \"qi\": \"Dm5_yVCTMYMIz7_Eta5DsyvyAkxVhe26mz4fVGL2low8d9r7ltGn86FGvab2uyMldSyn3PxPnzztsJ0nwKj7Dq3skk1P8vdIpZGr1IB9WU0gPOpNGiXv5N5EhQl6O6XpUfDVIsUfYKR7VQ005QJXBDPwOUm9Ns1iVV7Ak-CYF1o\",",
+                            "  \"ext\": true,",
+                            "  \"kid\": \"ef545acda3e281e54f2e5c\",",
+                            "  \"alg\": \"RS256\",",
+                            "  \"use\": \"sig\"",
+                            "}, ",
+                            "aud = 'https://apia-dc.pf.staging.echonet/auth/oauth2/v2/token';",
+                            "",
+                            "/* CREATE AND SIGN JWT*/",
+                            "const header = {",
+                            "    \"alg\": \"RS256\" //jwk.alg",
+                            "};",
+                            "",
+                            "const payload = {",
+                            "    \"iss\": \"\" + iss + \"\", ",
+                            "    \"aud\": \"\" + aud + \"\",",
+                            "    \"sub\": \"\" + iss + \"\",",
+                            "    \"kid\": \"\" + iss + \"\"",
+                            "};",
+                            "",
+                            "// Loading the library",
+                            "eval(pm.globals.get('pmlib_code'));",
+                            "",
+                            "// Create a signed jwt (JWS)",
+                            "const signed_jwt = pmlib.jwtSign(jwk, payload, header, 3600, 'RS256');",
+                            "",
+                            "// Get new access token",
+                            "pm.sendRequest({",
+                            "    url:authUrl,",
+                            "    method:'POST',",
+                            "    header:{",
+                            "        'Content-Type':'application/x-www-form-urlencoded',",
+                            "        'User-Agent':'PostmanRuntime/7.28.4'},",
+                            "    body:{",
+                            "        mode:'urlencoded',",
+                            "        urlencoded:[",
+                            "        {   key:'grant_type', value:'urn:ietf:params:oauth:grant-type:jwt-bearer'},",
+                            "        { key: 'assertion', value:signed_jwt}",
+                            "        ]",
+                            "    }",
+                            "},",
+                            "function(err, response){",
+                            "    if (err){",
+                            "        console.log(err);",
+                            "        }",
+                            "    else{",
+                            "        // Set access token in environnment for current use",
+                            "        const accessToken = response.json().access_token;",
+                            "        pm.environment.set('access_token', accessToken);",
+                            "        }",
+                            "});",
+                            ""
+                        ],
+                        "type": "text/javascript"
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"response must have 200 status, and a body which contains expected result\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "    pm.response.to.be.withBody;",
+                            "    pm.expect(pm.response.text()).to.match(/\"ALL_OK\"/);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{access_token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "text/plain, application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "callerID",
+                        "value": "SSSO",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://apia-dc.pf.staging.echonet/dirfr/fr/loangrantinghd/api/v1/commitment-level/e-commerce/ping",
+                    "protocol": "https",
+                    "host": [
+                        "apia-dc",
+                        "pf",
+                        "staging",
+                        "echonet"
+                    ],
+                    "path": [
+                        "dirfr",
+                        "fr",
+                        "loangrantinghd",
+                        "api",
+                        "v1",
+                        "commitment-level",
+                        "e-commerce",
+                        "ping"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "requests": [
+    {
+      "description": "Request Name 1",
+      "url": "https://www.dynatrace.com/?Params Key 1=Value Key 1&Params Key 2=Value Key 2",
+      "method": "POST",
+      "requestBody": "{\r\n\t\"name\": \"Coucou je suis le body\"\r\n}",
+      "validation": {
+        "rules": [
+          {
+            "type": "httpStatusesList",
+            "value": ">=400",
+            "passIfFound": false
+          }
+        ]
+      },
+      "configuration": {
+        "userAgent": "Useragent",
+        "requestHeaders": [
+          {
+            "name": "Header key 1",
+            "value": "Value key 1"
+          },
+          {
+            "name": "Header key 2",
+            "value": "Value key 2"
+          },
+          {
+            "name": "User_Agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36)"
+          }
+        ],
+        "acceptAnyCertificate": true,
+        "followRedirects": true,
+        "shouldNotPersistSensitiveData": false
+      },
+      "preProcessingScript": "// This is an example for the pre-exe\r\r\nvar responseBody = pm.response.text();\r\r\nvar jsonData = JSON.parse(responseBody);\r\r\npm.environment.set(\"quotation_id\", jsonData.financingScenarioDetail.quotations[0].id);\r\r\npm.environment.set(\"quotation_duration\", jsonData.financingScenarioDetail.quotations[0].duration);\r\r\nconsole.log(\"Quotation ID: \" + jsonData.financingScenarioDetail.quotations[0].id);\r\r\nconsole.log(\"Quotation Financial Product ID: \" + jsonData.financingScenarioDetail.quotations[0].financialProductId);\r\r\n",
+      "postProcessingScript": "// This is an example for the Post-exe\r\r\nvar responseBody = pm.response.text();\r\r\nvar jsonData = JSON.parse(responseBody);\r\r\npm.environment.set(\"batchId\", jsonData.batchId); \r\r\nconsole.log(\"batchId: \" + jsonData.batchId);"
+    },
+    {
+      "description": "Request Name 2",
+      "url": "https://www.google.com/",
+      "method": "GET",
+      "validation": {
+        "rules": [
+          {
+            "type": "httpStatusesList",
+            "value": ">=400",
+            "passIfFound": false
+          }
+        ]
+      },
+      "configuration": {
+        "userAgent": "Useragent",
+        "acceptAnyCertificate": true,
+        "followRedirects": true,
+        "shouldNotPersistSensitiveData": false
+      }
+    },
+    {
+      "description": "Request Name 3",
+      "url": "https://www.dynatrace.com/request-demo/",
+      "method": "PUT",
+      "validation": {
+        "rules": [
+          {
+            "type": "httpStatusesList",
+            "value": ">=400",
+            "passIfFound": false
+          }
+        ]
+      },
+      "configuration": {
+        "userAgent": "Useragent",
+        "acceptAnyCertificate": true,
+        "followRedirects": true,
+        "shouldNotPersistSensitiveData": false
+      }
+    }
+  ]
+}

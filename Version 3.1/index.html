@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur Postman vers Dynatrace</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Postman to Dynatrace HTTP</h1>
+        <div class="input-area">
+            <input type="file" id="jsonFile" accept=".json">
+            <button id="convertButton">Go</button>
+            <button id="copyButton" disabled>Copy Code</button>
+        </div>
+        <div class="storage-controls">
+            <input type="text" id="keyInput" placeholder="Key">
+            <input type="text" id="valueInput" placeholder="Value">
+            <button id="storeBtn">Store</button>
+            <input type="text" id="retrieveKeyInput" placeholder="Retrieve Key">
+            <button id="retrieveBtn">Retrieve</button>
+            <button id="clearBtn">Clear Storage</button>
+        </div>
+        <div id="storageList"></div>
+        <pre id="output"></pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
