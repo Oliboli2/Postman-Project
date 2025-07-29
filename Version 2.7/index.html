@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postman to Dynatrace HTTP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+    <div class="container">
+        <h1>Postman to Dynatrace HTTP</h1>
+        <div class="input-area">
+            <input type="file" id="jsonFile" accept=".json">
+            <button id="convertButton">Go</button>
+            <button id="copyButton">Copy Code</button>
+        </div>
+        <pre id="output"></pre>
+        <div id="message-area">
+            <p>You can use this tool to assist in the creation of complex HTTP monitors. Please ask your client to provide the Postman collection (json file - Collection v2.1) they used internally, and import it before clicking "Go". Then, copy the code displayed in the “script” section of the HTTP monitor.</p>
+    <p>If your file contains multiple Postman collections, each collection must be converted separately. Please note that credentials and global variables will need to be added manually to the HTTP monitor.</p>
+    <h4>Future versions of this tool will include:</h4>
+    <ul>
+        <li>The addition of global variables</li>
+        <li>Credential management</li>
+           </ul>
+    <p>If you encounter a problem, need help, or want to provide feedback, please contact: olivier.hubeaux@dynatrace.com or Sacha.anslow@dynatrace.com.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+body {
+    font-family: 'DT Flow', sans-serif;
+    background-color: #221f3b; 
+    color: #eee; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #16112e; 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+    width: 80%;
+    max-width: 900px;
+}
+
+h1 {
+    color: #ffffff; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #322d4d; 
+    border-radius: 4px;
+    background-color: #16112e;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button {
+    background-color: #241f3d; 
+    color: #b3aae3;
+    padding: 10px 20px;
+    border: 1px solid #322d4d; 
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #383549;
+
+}
+
+#copyButton {
+    background-color: #241f3d; 
+}
+
+#copyButton:hover {
+    background-color: #302c44;
+
+}
+
+#message-area {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #322d4d;
+    background-color: #241f3d; 
+    color: #dcd6ee;
+    font-size: small;
+  }
+
+pre {
+    background-color: #221f3b; 
+    border: 1px solid #322d4d; 
+    padding: 15px;
+    border-radius: 4px;
+    overflow: auto;
+    white-space: pre-wrap;
+    font-family: monospace;
+    color: #dcd6ee;
+}
